@@ -3,19 +3,19 @@ library(dplyr)
 
 # Reading in test data.
 testX <- read.table(
-  "/Users/mikeborg/Development/R/courseradatascience/Getting_and_Cleaning_Data/course_project/dataset/test/X_test.txt", 
+  "dataset/test/X_test.txt", 
   header=FALSE
 )
 
 # Reading in test activites
 testY <- read.table(
-  "/Users/mikeborg/Development/R/courseradatascience/Getting_and_Cleaning_Data/course_project/dataset/test/Y_test.txt", 
+  "dataset/test/Y_test.txt", 
   header=FALSE
 )
 
 # Reading in test participants
 subjectTest <- read.table(
-  "/Users/mikeborg/Development/R/courseradatascience/Getting_and_Cleaning_Data/course_project/dataset/test/subject_test.txt", 
+  "dataset/test/subject_test.txt", 
   header=FALSE
 )
 
@@ -24,19 +24,19 @@ testData <- cbind(testY, subjectTest, testX)
 
 # Reading in training data.
 trainX <- read.table(
-  "/Users/mikeborg/Development/R/courseradatascience/Getting_and_Cleaning_Data/course_project/dataset/train/X_train.txt", 
+  "dataset/train/X_train.txt", 
   header=FALSE
 )
 
 # Reading in training activities.
 trainY <- read.table(
-  "/Users/mikeborg/Development/R/courseradatascience/Getting_and_Cleaning_Data/course_project/dataset/train/Y_train.txt", 
+  "dataset/train/Y_train.txt", 
   header=FALSE
 )
 
 # Reading in test participants
 subjectTrain <- read.table(
-  "/Users/mikeborg/Development/R/courseradatascience/Getting_and_Cleaning_Data/course_project/dataset/train/subject_train.txt", 
+  "dataset/train/subject_train.txt", 
   header=FALSE
 )
 
@@ -48,7 +48,7 @@ dataMerged <- rbind(testData, trainData)
 
 # Reading in features.
 features <- read.table(
-  "/Users/mikeborg/Development/R/courseradatascience/Getting_and_Cleaning_Data/course_project/dataset/features.txt", 
+  "dataset/features.txt", 
   header=FALSE, 
   stringsAsFactors = FALSE
 )
@@ -89,4 +89,4 @@ averages <- melt(dataStdMean, id=c("activity", "subject"))
 averages <- dcast(averages, activity + subject ~ variable, mean)
 
 # Create the tidy data set.
-write.table(averages, "/Users/mikeborg/Development/R/courseradatascience/Getting_and_Cleaning_Data/course_project/tidy.txt", row.name = FALSE)
+write.table(averages, "tidy.txt", row.name = FALSE)
